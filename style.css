@@ -85,3 +85,37 @@ footer p {
     text-align: center;
     font-size: 12px;
 }
+
+
+/* Responsive with max width 800px */
+@media screen and (max-width: 800px) {
+    .halfWidth {
+        width: 80%;
+        margin-bottom: 7%;
+        text-align: center;
+    }
+    
+    .dreamArea {
+        background: none;
+    }
+    .experienceArea {
+        background: none;
+    }
+    footer {
+        width: 100%;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    p {
+        text-align: justify;
+        padding: 5px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    #fullStack {
+        height: 90%;
+    }
+}
