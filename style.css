@@ -118,4 +118,7 @@ footer p {
     #fullStack {
         height: 90%;
     }
+    .experienceArea > h2 {
+        text-align: center;
+    }
 }
