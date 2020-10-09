@@ -13,6 +13,7 @@ h2 {
 
 p {
     color: dimgrey;
+    text-align: justify;
 }
 
 .orangeHighlight {
@@ -39,8 +40,77 @@ p {
 section {
     height: 500px;
     padding-bottom: 150px;
+    width: 100%;
 }
 
+/* Css hover button */
+.glow-on-hover {
+    width: 150px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.btnSize {
+    width: 230px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;    
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
 .linkBtn {
     text-decoration: none;
     background-image: linear-gradient(45deg, lightsalmon, tomato);
@@ -61,8 +131,13 @@ section {
     border-radius: 5px;
     height: 80%;
     background-color: white;
+    transition: transform 0.2s ease;
 }
-
+.singleExperience:hover {
+    -webkit-transform: scale(.5);
+    -ms-transform: scale(.5);
+    transform: scale(1.02);
+}
 .experienceArea {
     background-image: url("images/exp-bg.png");
     background-repeat: no-repeat;
@@ -71,7 +146,7 @@ section {
 
 #fullStack {
     border-left: 7px solid;
-    border-image: linear-gradient(180deg, lightsalmon, tomato);
+    border-image: linear-gradient(180deg, lightsalmon, #FF2278);
     border-image-slice: 1;
 }
 
@@ -81,29 +156,27 @@ section {
     border-image-slice: 1;
 }
 
-footer p {
+.footer p{
+    font-size: 13px;
     text-align: center;
-    font-size: 12px;
+    float: left;
+    width: 100%;
 }
 
 
-/* Responsive with max width 800px */
-@media screen and (max-width: 800px) {
+/* Extra small and devices (phones, tablet and down)  */
+@media only screen and (max-width: 992px) {
     .halfWidth {
         width: 80%;
-        margin-bottom: 7%;
         text-align: center;
+        margin: 0 10%;
+        margin-bottom: 7%;
+        height: auto;
+        display: block;
     }
-    
+    .experienceArea, 
     .dreamArea {
-        background: none;
-    }
-    .experienceArea {
-        background: none;
-    }
-    footer {
-        width: 100%;
-        overflow: hidden;
+        background-image: none;
     }
     h1 {
         font-size: 30px;
@@ -115,10 +188,11 @@ footer p {
     h2 {
         font-size: 25px;
     }
-    #fullStack {
-        height: 90%;
-    }
     .experienceArea > h2 {
         text-align: center;
     }
+    .glow-on-hover {
+        display: inline-block;
+    }
 }
+
